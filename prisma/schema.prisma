@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Video {
+  id            String    @id @default(cuid())
+  youtubeUrl    String
+  title         String?
+  transcript    String    @db.Text
+  summary       String    @db.Text
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  socialPosts   SocialPost[]
+  imagePrompt   String?   @db.Text
+  captionPrompt String?   @db.Text
+  generatedImage String?  @db.Text // Store URL or Base64 of generated image
+}
+
+model SocialPost {
+  id          String    @id @default(cuid())
+  platform    Platform
+  content     String    @db.Text
+  imageUrl    String?
+  status      PostStatus @default(PENDING)
+  videoId     String
+  video       Video     @relation(fields: [videoId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  postedAt    DateTime?
+  error       String?   @db.Text
+
+  @@index([videoId])
+  @@index([platform, status])
+}
+
+enum Platform {
+  INSTAGRAM
+  LINKEDIN
+  FACEBOOK
+  TWITTER
+}
+
+enum PostStatus {
+  PENDING
+  POSTED
+  FAILED
+}

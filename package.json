@@ -8,7 +8,11 @@
     "build": "tsc",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write \"src/**/*.ts\"",
-    "test": "jest"
+    "test": "jest",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "db:init": "ts-node src/scripts/init-database.ts"
   },
   "keywords": [],
   "author": "",
@@ -40,7 +44,7 @@
     "jest": "^29.7.0",
     "nodemon": "^3.0.3",
     "prettier": "^3.2.5",
-    "prisma": "^5.10.0",
+    "prisma": "^5.22.0",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
