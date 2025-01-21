@@ -23,9 +23,8 @@ model Video {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   socialPosts   SocialPost[]
-  imagePrompt   String?   @db.Text
   captionPrompt String?   @db.Text
-  generatedImage String?  @db.Text // Store URL or Base64 of generated image
+  generatedImage String?  @db.Text
 }
 
 model SocialPost {

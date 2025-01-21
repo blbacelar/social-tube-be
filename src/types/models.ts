@@ -2,7 +2,6 @@ import { Platform, PostStatus } from '@prisma/client';
 
 export interface VideoInput {
   youtubeUrl: string;
-  imagePrompt?: string;
   captionPrompt?: string;
 }
 
@@ -12,7 +11,6 @@ export interface VideoOutput {
   title?: string | null;
   transcript: string;
   summary: string;
-  imagePrompt?: string | null;
   captionPrompt?: string | null;
   generatedImage?: string | null;
   createdAt: Date;

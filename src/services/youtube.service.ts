@@ -1,6 +1,7 @@
 import { YoutubeTranscript } from 'youtube-transcript';
 import { prisma } from './prisma.service';
 import { VideoInput } from '../types/models';
+import { OpenAIService } from './openai.service';
 
 export class YouTubeService {
   private static extractVideoId(url: string): string {
@@ -44,11 +45,16 @@ export class YouTubeService {
           youtubeUrl: videoInput.youtubeUrl,
           title,
           transcript: fullTranscript,
-          summary: '', // Will be filled later by OpenAI service
-          imagePrompt: videoInput.imagePrompt,
+          summary: '', // Will be filled by OpenAI service
           captionPrompt: videoInput.captionPrompt,
         },
       });
+
+      // Generate summary
+      await OpenAIService.generateSummary(video.id);
+      
+      // Generate image
+      await OpenAIService.generateImage(video.id);
 
       return fullTranscript;
     } catch (error) {

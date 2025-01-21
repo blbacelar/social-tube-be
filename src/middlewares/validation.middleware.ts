@@ -3,7 +3,6 @@ import { z } from 'zod';
 
 const videoInputSchema = z.object({
   youtubeUrl: z.string().url(),
-  imagePrompt: z.string().optional(),
   captionPrompt: z.string().optional(),
 });
 
