@@ -30,6 +30,7 @@ model Video {
 
 model SocialPost {
   id          String    @id @default(cuid())
+  postId      String?
   platform    Platform
   content     String    @db.Text
   imageUrl    String?

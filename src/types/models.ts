@@ -36,4 +36,5 @@ export interface SocialPostOutput {
   updatedAt: Date;
   postedAt?: Date | null;
   error?: string | null;
+  postId?: string | null;
 } 

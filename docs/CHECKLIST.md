@@ -7,7 +7,7 @@
 - [x] **Supabase**: Set up Supabase for the project.
 - [x] **Prisma Schema**: Set up Prisma schema for the database
 - [x] **Service Layer**: Create the service layer for YouTube transcript extraction
-- [ ] **OpenAI Integration**: Implement OpenAI integration
+- [x] **OpenAI Integration**: Implement OpenAI integration
 - [ ] **Social Media Posting Services**: Create social media posting services
 - [ ] **Controllers and Routes**: Set up the controllers and routes
 - [ ] **Error Handling and Logging**: Implement error handling and logging

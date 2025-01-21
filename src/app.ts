@@ -4,6 +4,7 @@ import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import env from './config/environment';
 import youtubeRoutes from './routes/youtube.routes';
+import facebookRoutes from './routes/facebook.routes';
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(limiter);
 
 // Routes
 app.use('/api/youtube', youtubeRoutes);
+app.use('/api/facebook', facebookRoutes);
 
 // Routes will be added here
 app.get('/health', (req, res) => {

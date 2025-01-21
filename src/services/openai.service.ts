@@ -1,6 +1,9 @@
 import OpenAI from 'openai';
 import env from '../config/environment';
 import { prisma } from './prisma.service';
+import fs from 'fs';
+import path from 'path';
+import axios from 'axios';
 
 export class OpenAIService {
   private static instance: OpenAI;
@@ -80,7 +83,7 @@ Avoid using unnecessary fluff or filler phrases, and do not include introductory
 
       const openai = this.getInstance();
       
-      // First, generate the image prompt using GPT
+      // Generate the image prompt using GPT
       const promptResponse = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [

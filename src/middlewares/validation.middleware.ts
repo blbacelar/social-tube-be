@@ -3,7 +3,6 @@ import { z } from 'zod';
 
 const videoInputSchema = z.object({
   youtubeUrl: z.string().url(),
-  captionPrompt: z.string().optional(),
 });
 
 export const validateVideoInput = (req: Request, res: Response, next: NextFunction) => {
