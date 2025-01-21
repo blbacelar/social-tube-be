@@ -25,6 +25,7 @@ model Video {
   socialPosts   SocialPost[]
   captionPrompt String?   @db.Text
   generatedImage String?  @db.Text
+  imagePrompt   String?   @db.Text
 }
 
 model SocialPost {

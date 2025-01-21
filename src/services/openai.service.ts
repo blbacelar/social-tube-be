@@ -138,10 +138,13 @@ Transcript: ${video.transcript}`,
         throw new Error('Failed to generate image');
       }
 
-      // Update the video with the generated image URL
+      // Update the video with the generated image URL and prompt
       await prisma.video.update({
         where: { id: videoId },
-        data: { generatedImage: imageUrl },
+        data: { 
+          generatedImage: imageUrl,
+          imagePrompt: imagePrompt 
+        },
       });
 
       return imageUrl;

@@ -13,6 +13,7 @@ export interface VideoOutput {
   summary: string;
   captionPrompt?: string | null;
   generatedImage?: string | null;
+  imagePrompt?: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
