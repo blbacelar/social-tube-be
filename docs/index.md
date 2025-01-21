@@ -13,3 +13,4 @@ Social Tube BE is a backend service designed to process YouTube videos, transcri
 - [Architecture](./ARCHITECTURE.md)
 - [Feature Checklist](./CHECKLIST.md)
 - [API Documentation](./API.md)
+- [Privacy Policy](./privacy-policy.md)
